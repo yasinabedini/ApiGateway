@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Title": "Comment1",
+    "Text": "CommentText1",
+    "ProductId": 1
+  },
+  {
+    "Id": 1,
+    "Title": "Comment2",
+    "Text": "CommentText2",
+    "ProductId": 1
+  },
+  {
+    "Id": 1,
+    "Title": "Comment3",
+    "Text": "CommentText3",
+    "ProductId": 3
+  }
+]

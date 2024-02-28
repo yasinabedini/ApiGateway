@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "Name": "Product1",
+    "Description": "Product Description 1"
+  },
+  {
+    "Id": 2,
+    "Name": "Product2",
+    "Description": "Product Description 2"
+  },
+  {
+    "Id": 3,
+    "Name": "Product3",
+    "Description": "Product Description 3"
+  },
+  {
+    "Id": 4,
+    "Name": "Product4",
+    "Description": "Product Description 4"
+  }
+]

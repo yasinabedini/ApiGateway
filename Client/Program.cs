@@ -1,35 +1,35 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient("ProductService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:2100/Product/");
+});
+
+builder.Services.AddHttpClient("CommentService", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:2100/Comment/");
+});
+
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddHttpClient("FName", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:2100/f/");
-});
-
-builder.Services.AddHttpClient("LName", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:2100/l/");
-});
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapRazorPages();
 
 app.Run();
